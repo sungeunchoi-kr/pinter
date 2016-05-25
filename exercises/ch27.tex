@@ -1,0 +1,129 @@
+\title{Some Proofs}
+
+\documentclass[12pt]{article}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage[utf8]{inputenc}
+    \newcommand\xqed[1]{%
+        \leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill
+        \quad\hbox{#1}}
+    \newcommand\qedtri{\xqed{$\triangle$}}
+\setlength\parindent{0pt}
+
+\begin{document}
+\subsection{F: Quadratic Extensions}
+If $F$ is a field whose characteristic is $\neq 2$, any quadratic extension of $F$ is of the form
+$F(\sqrt{a})$ for some $a \in F$.
+
+\begin{proof}
+Suppose $F(\alpha)$ is a quadratic extension of $F$. Then, by definition, there is a minimum
+polynomial of $\alpha$ over $F$ of degree 2, $g(x)$, of the form
+$$g(x) = x^2 + \beta x + \gamma \text{ where } g(\alpha)=0 \text{ and } \beta \text{, } \gamma \in F \text{.}$$
+By completing the square,
+$$g(x) = \left(x + \frac{1}{2}\beta \right) ^2 + \left(\gamma - \frac{1}{4}\beta^2\right)\text{.}$$
+Now, we define $p(\chi)$ so that
+$$p(\chi) = \chi^2 + \gamma - \frac{1}{4}\beta^2\text{.}$$
+Then, it is easy to see that
+$$p(x + \frac{1}{2}\beta) = g(x)\text{.}$$.
+Hence, $\alpha$ is a root of $p(x + c)$ for some $c \in F$.
+Well, we know that 
+
+    \begin{align*}
+        F(\alpha) \cong F[x]\mathbin{/}\left<g(x)\right> \\ &\Leftrightarrow
+        F(\alpha) \cong F[x]\mathbin{/}\left<p(x+c)\right> \\ &\Leftrightarrow
+        F(\alpha) \cong F[x]\mathbin{/}\left<p(x)\right>
+    \end{align*}
+
+So $\alpha$ also is in fact a root of $p(x)$. That is,
+$$\alpha^2 + \gamma - \frac{1}{4}\beta^2 = 0$$
+$$\alpha^2 = \frac{1}{4}\beta^2 - \gamma$$
+$$\alpha = \sqrt{\frac{1}{4}\beta^2 - \gamma}$$
+$$\alpha = \sqrt{a} \text{ where } a \in F$$
+
+\end{proof}
+
+
+%\subsection{Theorem 14.1(ii)}
+%Let $f:G \rightarrow H$ be Group homomorphism with $x \in G$.
+%Then, $(f(x))^{-1} = f(x^{-1}).$
+%
+%\begin{proof}
+%Observe that it is sufficient to show
+%$$f(x^{-1}) * f(x) = e_H$$
+%since then,
+%    \begin{align*}
+%        f(x^{-1}) * f(x) * (f(x))^{-1} &= e_H * (f(x))^{-1} &&\text{(operate each side by $(f(x))^{-1}$)} \\
+%        f(x^{-1}) &= (f(x))^{-1}
+%    \end{align*}
+%
+%Well,
+%    \begin{align*}
+%    f(x^{-1}) * f(x) &= f(x^{-1} * x) && \text{(by homomorphism)} \\
+%    &= f(e_G)                                                     \\
+%    &= e_H                            && \text{(Theorem 14.1(i)}
+%    \end{align*}
+%\end{proof}
+%
+%\subsection{Theorem 14.C.1}
+%For group \(G\) and subgroup \(H\), Let \(f:G \to H\) be a homomorphism with kernel \(K\). If \(f\) is injective, then \(K=\{e_G\}\).
+%\begin{proof}
+%We first show that ($f$ is injective) $\implies$ $K=\{e_G\}$.
+%
+%Suppose \(x\in K\). Then,
+%    \begin{align*}
+%        f(x) &= e_H && \text{(by definition of the Kernel)} \\
+%        \text{and } f(e_G) &= e_H && \text{(by Thm. 14.1(i)).} \\
+%        \text{Hence, } f(x) &= f(e_G) \text{.} \\
+%        \therefore x &= e_G && \text{(by definition of Injective)}
+%    \end{align*}
+%\qedtri
+%
+%We next show that $K=\{e\} \implies f$ is injective.
+%
+%Suppose for any $a, b \in G, f(a) = f(b)$.
+%Then,
+%    \begin{align*}
+%        f(a) \cdot (f(b))^{-1} &= e_H && \text{(operate each side by $(f(b))^{-1}$)}  \\
+%        f(a) \cdot f(b^{-1}) &= e_H   && \text{(by Thm. 14.1(ii))}    \\
+%        f(ab^{-1}) &= e_H             && \text{(by Homomorphism)}     \\
+%        ab^{-1} &= e_G                && \text{(since $K = \{e_G\}$)} \\
+%        a(b^{-1}b) &= e_G b                                         \\
+%        a &= b
+%    \end{align*}
+%\end{proof}
+%
+%\subsection{Theorem 22.1}
+%Every ideal of $\mathbb{Z}$ is principal.
+%
+%\begin{proof}
+%We will prove the assertion by showing that:
+%$$\text{For any ideal } J \subseteq \mathbb{Z} \text{, } \exists n \text{ such that } J = \langle n\rangle \text{.}$$
+%Case 1: If $J = \{0\}$, then $J = \langle n\rangle$ where $n = 0$ and we are done.
+%
+%Case 2: Otherwise, there must exist positive integers in $J$. By the well-ordering property,
+%let $n$ be the least positive integer in $J$. We will now show that $J = \langle n\rangle$ which
+%will complete the proof:
+%\newline
+%
+%Let $m \in J$. By the division algorithm, we can say that $m = nq + r$ where $0 \le r < n$.
+%Since $m, n \in J$, we can say that $m - nq = r$, and $r$ is also an element of $J$.
+%Well, because $0 \le r < n$, ($r = 0$) or ($r > 0 \wedge r < n$). The second case is impossible
+%because $n$ is the least element in $J$. Therefore, $r = 0$ and $m = nq + 0$.
+%\newline
+%
+%That is, every element of $J$ is a multiple of $n$. In other words, $J = \langle n\rangle$.
+%\end{proof}
+%
+%
+%\subsection{Theorem 22.2}
+%The only invertible elements of $\mathbb{Z}$ are $1$ and $-1$.
+%\begin{proof}
+%\end{proof}
+%
+%\subsection{Theorem 22.3}
+%Any two nonzero integers $r$ and $s$ have a greatest common divisor $t$. Moreover,
+%$t$ is equal to a linear combination of $r$ and $s$. That is, $$t = kr + ls \text{.}$$
+%\begin{proof}
+%\end{proof}
+
+\end{document}
+
