@@ -1,0 +1,33 @@
+\title{Some Proofs}
+
+\documentclass[12pt]{article}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage[utf8]{inputenc}
+    \newcommand\xqed[1]{%
+        \leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill
+        \quad\hbox{#1}}
+    \newcommand\qedtri{\xqed{$\triangle$}}
+\setlength\parindent{0pt}
+
+\begin{document}
+\subsection{B: Further Examples of Finite Extensions}
+Let $F$ be a field of characteristic $\neq 2$. Let $a, b \in F$ and $a \neq b $.
+
+\subsubsection{}
+Prove that any field $F$ containing $\sqrt{a} + \sqrt{b}$ also contains $\sqrt{a}$ and $\sqrt{b}$.
+Conclude that $F(\sqrt{a} + \sqrt{b}) = F(\sqrt{a}, \sqrt{b})$.
+
+\begin{proof}
+By definition, $\tau = \sqrt{a}+\sqrt{b} \in F(\sqrt{a} + \sqrt{b})$.
+Since $F(\sqrt{a} + \sqrt{b})$ is a field, $\tau^2 = a+2\sqrt{ab}+b \in F(\sqrt{a} + \sqrt{b})$.
+Then, it must be that $\sqrt{ab} \in F(\sqrt{a} + \sqrt{b})$.
+Well, since the product of any two elements in a field is an element of the field,
+it must be that $\tau\sqrt{ab} = a\sqrt{b}+b\sqrt{a} \in F(\sqrt{a} + \sqrt{b})$.
+Hence, we have shown that any field $F$ containing $\sqrt{a} + \sqrt{b}$ also contains $\sqrt{a}$ and $\sqrt{b}$.
+
+Since by definition, $F(\sqrt{a}, \sqrt{b})$ is the minimum field that contains
+$\sqrt{a}$ and $\sqrt{b}$, it follows that $F(\sqrt{a}, \sqrt{b}) \subseteq F(\sqrt{a} + \sqrt{b})$.
+The reverse inclusion is also true because $\sqrt{a}+\sqrt{b} \in F(\sqrt{a}, \sqrt{b})$
+and $F(\sqrt{a}+\sqrt{b})$ is the minimum field containing $\sqrt{a} + \sqrt{b}$.
+\end{proof}
+\end{document}
